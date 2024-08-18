@@ -152,7 +152,7 @@ const Index = () => {
                             </button>
                           </div>
                           <div>
-                            <p className="text-red-500 text-[24px]">
+                            <p className="font-[700] text-[24px]">
                               {(item.price * quantities[item.id]).toFixed(2)}
                               <span className="text-orange-500">$</span>
                             </p>
