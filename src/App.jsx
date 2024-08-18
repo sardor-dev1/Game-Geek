@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/header";
 import Footer from "./components/footer";
 
-import { Cart, ProductSingle, Product} from "@pages"
+import { Cart, ProductSingle, Product } from "@pages";
 
 const App = () => {
   return (

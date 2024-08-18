@@ -1,12 +1,12 @@
 import SearchIcon from "@mui/icons-material/Search";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 // -------------------------------------------
 import NavLogo from "../../assets/NavLogo.svg";
 import Vector from "../../assets/Vector.svg";
 import GameGeek from "../../assets/bottom-logo.svg";
 import { Link } from "react-router-dom";
+import Cart from "../../components/cart";
 
 const index = () => {
   return (
@@ -22,13 +22,13 @@ const index = () => {
                 <a href="#">
                   <img src={Vector} alt="" />
                 </a>
-                <a className="text-[14px] font-semibold" href="#">
+                <a className="text-[14px] font-semibold max-[450px]:hidden" href="#">
                   +4904-049-950
                 </a>
               </div>
               <div className="flex justify-between items-center gap-[30px]">
-                <p>Get 50% Off on the Selected items </p>
-                <p>Shop now</p>
+                <p className="max-[840px]:hidden">Get 50% Off on the Selected items </p>
+                <p className="max-[530px]:hidden">Shop now</p>
               </div>
               <div>Languages</div>
             </div>
@@ -40,7 +40,7 @@ const index = () => {
               </a>
               <ul
                 style={{ color: "black" }}
-                className="flex justify-between items-center gap-[40px] "
+                className="max-[1030px]:hidden flex justify-between items-center gap-[40px] "
               >
                 <li className="text-[16px] font-[500] hover:border-gray-400 border-b-solid border-b-[2px] border-white duration-150">
                   <a href="#">Categories</a>
@@ -68,9 +68,9 @@ const index = () => {
                 <button>
                   <PersonOutlineIcon />
                 </button>
-                <button>
-                  <AddShoppingCartIcon />
-                </button>
+                <div>
+                  <Cart />
+                </div>
               </div>
             </div>
           </div>

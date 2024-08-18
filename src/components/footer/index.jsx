@@ -1,20 +1,20 @@
 import "./style.scss";
 import FooterLogo from "../../assets/footer-logo.svg";
-import NavLogo from "../../assets/NavLogo.svg"
-import Twitter from "../../assets/twitter.svg"
-import Help from "../../assets/help.svg"
-import In from "../../assets/in.svg"
-import Facebook from "../../assets/facebook.svg"
+import NavLogo from "../../assets/NavLogo.svg";
+import Twitter from "../../assets/twitter.svg";
+import Help from "../../assets/help.svg";
+import In from "../../assets/in.svg";
+import Facebook from "../../assets/facebook.svg";
 import { Link } from "react-router-dom";
-import Instagram from "../../assets/insta.svg"
+import Instagram from "../../assets/insta.svg";
 
 const index = () => {
   return (
     <>
       <footer className="bg-[#0D2612] text-white">
         <div className="container">
-          <div className="pt-[70px] pb-[90px] flex justify-between border-b-solid border-b-[2px] border-white">
-            <div className="flex flex-col justify-between">
+          <div className="pt-[70px] pb-[90px] max-[770px]:flex-col-reverse max-[770px]:gap-[50px] flex justify-between border-b-solid border-b-[2px] border-white">
+            <div className="flex flex-col max-[770px]:flex-row justify-between">
               <div className="flex flex-col gap-[15px]">
                 <Link>
                   <img src={FooterLogo} alt="footer logo" />
@@ -43,7 +43,7 @@ const index = () => {
                 </a>
               </div>
             </div>
-            <div className="flex items-start gap-[125px]">
+            <div className="flex items-start max-[1030px]:gap-[60px] max-[770px]:gap-0 max-[770px]:justify-between gap-[125px]">
               <ul>
                 <h3 className="text-[24px] font-[700]">Services</h3>
                 <li>
@@ -97,7 +97,7 @@ const index = () => {
               </ul>
             </div>
           </div>
-          <div className="flex py-[35px] justify-between items-center">
+          <div className="max-[1000px]:flex-col max-[1000px]:items-start  flex py-[35px] justify-between items-center">
             <img src={NavLogo} alt="" />
             <div className="flex items-center gap-3">
               <img src={Help} alt="" /> <p>Help Center</p>

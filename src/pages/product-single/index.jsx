@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import ImageGallery from "react-image-gallery";
+import SingleUi from "../../components/single-ui";
+import "./index.scss";
+import { increment, decrement } from "../../slice/CounterSlice";
 
 import "react-image-gallery/styles/css/image-gallery.css";
 
-import { Rate } from "antd";
+import { Col, Rate } from "antd";
 import Stack from "@mui/material/Stack";
 import {
   saveProduct,
@@ -36,6 +39,7 @@ const index = () => {
   const { product, loading, error } = useSelector(
     (store) => store.productSingle
   );
+  const count = useSelector((state) => state.counter.value);
 
   useEffect(() => {
     async function fetchProduct() {
@@ -73,40 +77,12 @@ const index = () => {
             <span className="text-[20px] font-[500]">{product.name}</span>{" "}
           </p>
           <div className="flex pb-[100px] flex-col min-[950px]:flex-row justify-center items-center gap-[60px]">
-            {/* <div className="flex flex-col justify-center items-center gap-[80px]">
-              <div>
-                <img src={product.image_url} alt={product.name} />
-              </div>
-              <div className="flex items-center gap-2">
-                <img
-                  className="w-[80px] object-contain border-solid border-[1px] border-gray-200"
-                  src={product.image_url}
-                  alt={product.name}
-                />
-                <img
-                  className="w-[80px] object-contain border-solid border-[1px] border-gray-200"
-                  src={product.image_url}
-                  alt={product.name}
-                />
-                <img
-                  className="w-[80px] object-contain border-solid border-[1px] border-gray-200"
-                  src={product.image_url}
-                  alt={product.name}
-                />
-                <img
-                  className="w-[80px] object-contain border-solid border-[1px] border-gray-200"
-                  src={product.image_url}
-                  alt={product.name}
-                />
-                <img
-                  className="w-[80px] object-contain border-solid border-[1px] border-gray-200"
-                  src={product.image_url}
-                  alt={product.name}
-                />
-              </div>
-            </div> */}
             <div className="w-[500px]">
-              <ImageGallery showPlayButton={false} items={images} />
+              <ImageGallery
+                className="w-[350px]"
+                showPlayButton={false}
+                items={images}
+              />
             </div>
             <div>
               <h2 className="pb-[16px] text-[48px] font-[400]">
@@ -152,21 +128,39 @@ const index = () => {
                 </ul>
               </div>
               <div>
-                <div className="py-[20px]">
+                <div className="py-[20px] flex justify-between">
                   <div className="flex items-center justify-between w-[200px] px-[30px] py-[13px] rounded-[25px] bg-gray-200 border-green-500 border-[4px] border-solid">
-                    <button className="h-[15px] w-[15px] flex items-center justify-center text-[32px] font-bold">
+                    <button
+                      className="h-[15px] w-[15px] flex items-center justify-center text-[32px] font-bold"
+                      onClick={() => dispatch(decrement())}
+                    >
                       -
                     </button>
-                    <p className="text-[24px] font-semibold">5</p>
-                    <button className="h-[15px] w-[15px] flex items-center justify-center text-[32px] font-bold">
+                    <p className="text-[24px] font-semibold">{count}</p>
+                    <button
+                      className="h-[15px] w-[15px] flex items-center justify-center text-[32px] font-bold"
+                      onClick={() => dispatch(increment())}
+                    >
                       +
                     </button>
                   </div>
+                  <p className="text-[18px] w-[157px] font-[600]">
+                    Only <span className="text-green-500">16 items</span> left!
+                    Don’t miss it
+                  </p>
+                </div>
+                <div>
+                  <button className="py-[16px] text-[18px] font-[700] text-white bg-green-700 rounded-lg w-full duration-100 hover:bg-green-800">
+                    Add to Cart
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <SingleUi />
       </div>
     </>
   );
